@@ -1,0 +1,24 @@
+name: Birthday Reminder
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs every day at 12:00 AM UTC
+  workflow_dispatch:     # Allows manual run
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt || pip install pandas twilio python-dotenv
+
+      - name: Run birthday reminder
+        run: python app.py
