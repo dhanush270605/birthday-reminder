@@ -9,7 +9,7 @@ client = Client(account_sid, auth_token)
 my_number = 'whatsapp:+918778198552'  # YOUR WhatsApp number
 twilio_number = 'whatsapp:+14155238886'  # Twilio sandbox
 
-df = pd.read_csv('/home/dhanusht2706/birthday_new.csv')
+df = pd.read_csv('birthday_new.csv')
 now = datetime.now()
 today = now.date()
 
